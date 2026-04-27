@@ -1,0 +1,10 @@
+backend/venv
+__pycache__
+
+
+
+blogs-recommendation-frontend/.angular
+blogs-recommendation-frontend/.vscode
+blogs-recommendation-frontend/.angular
+blogs-recommendation-frontend/.package-lock.json
+blogs-recommendation-frontend/node_modules

@@ -1,0 +1,46 @@
+
+
+### Get all posts
+GET http://127.0.0.1:5000/posts
+
+###
+
+### Get single post
+GET http://127.0.0.1:5000/posts/2
+
+###
+
+
+### Create post
+POST http://127.0.0.1:5000/posts
+Content-Type: application/json
+
+{
+  "title": "111",
+  "content": "222",
+  "description": "333"
+}
+
+###
+
+
+### Update post
+PUT http://127.0.0.1:5000/posts/3
+Content-Type: application/json
+
+{
+  "title": "Updated title",
+  "content": "Updated content",
+  "description": "Updated description"
+}
+
+###
+
+
+### Delete post
+DELETE http://127.0.0.1:5000/posts/2
+###
+
+### Search posts
+GET http://127.0.0.1:5000/search?query=angular&&similarity=0.0
+###

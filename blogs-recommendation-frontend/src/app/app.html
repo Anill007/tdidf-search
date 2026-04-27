@@ -1,0 +1,142 @@
+<div class="self-center mb-2 w-[60%]">
+    <!-- <ng-select [items]="suggestedBlogs() ?? []" autofocus placeholder="Search Blogs" bindLabel="title" [ngModel]="searchQuery()" (ngModelChange)="searchEvent()"></ng-select> -->
+    <div class="relative">
+        <input type="text" placeholder="Search..." [value]="searchQuery()" (input)="updateSearch($event)"
+            class="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 shadow-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none bg-white" />
+        <svg xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 text-slate-400 absolute left-4 top-1/2 transform -translate-y-1/2" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
+        </svg>
+    </div>
+</div>
+<button (click)="toggleList()">{{filtered() ? 'Show Similar' : 'Show All'}}</button>
+<div class="overflow-auto flex-1">
+    @if(filtered()) {
+    <div class="sticky top-0 bg-slate-50 py-6 text-red-700 text-lg font-semibold tracking-wide tracking-wide uppercase">
+        All Blogs <button (click)="addNewBlog()">Add new</button>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-3 lg:grid-cols-4 max-w-8xl pr-2 py-2">
+        @if(blogsLoading()) {
+        Loading....
+        }
+
+        @if(blogsError()) {
+        Could not fetch blogs.
+        }
+        @if(blogs()?.length) {
+        @for(blog of blogs(); track blog.id) {
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-3 hover:shadow-md transition"
+            (click)="editBlog(blog.id)">
+            <h2 class="text-xl font-semibold text-slate-800 mb-2">{{blog.title}}</h2>
+            <p class="text-slate-500 mb-4">{{blog.description}}</p>
+            <div class="text-slate-600 text-sm max-h-30 overflow-y-auto">
+                {{blog.content}}
+            </div>
+        </div>
+        }
+        }
+    </div>
+    } @else {
+    <div
+        class="sticky top-0 bg-slate-50 py-6 text-green-700 text-lg font-semibold tracking-wide tracking-wide uppercase">
+        Similar Blogs
+    </div>
+    <div class="grid gap-6 sm:grid-cols-3 lg:grid-cols-4 max-w-8xl pr-2 py-2">
+        @if(suggestedBlogsLoading()) {
+        Loading....
+        }
+
+        @if(suggestedBlogsError()) {
+        Could not fetch blogs.
+        }
+        @if(suggestedBlogs()?.length) {
+        @for(blogData of suggestedBlogs(); track blogData.blog.id) {
+        <div class="relative bg-white rounded-2xl shadow-sm border border-slate-200 p-3 hover:shadow-md transition">
+
+            <!-- Badge -->
+            <span
+                class="absolute top-3 right-3 text-xs font-semibold px-3 py-1 rounded-full bg-indigo-50 text-indigo-600">
+                Similarity: {{ blogData.similarity * 100 | number:'1.1-2' }}%
+            </span>
+
+            <!-- Content -->
+            <h2 class="text-xl font-semibold text-slate-800 mb-2 pr-16">
+                {{blogData.blog.title}}
+            </h2>
+
+            <p class="text-slate-500 mb-4">
+                {{blogData.blog.description}}
+            </p>
+
+            <div class="text-slate-600 text-sm max-h-30 overflow-y-auto">
+                {{blogData.blog.content}}
+            </div>
+        </div>
+        }
+        } @else {
+        No suggestions.
+        }
+    </div>
+    }
+</div>
+
+
+
+<!-- Overlay -->
+@if(selectedBlog()) {
+<div class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
+
+    <!-- Modal Card -->
+    <div class="bg-white w-full max-w-2xl rounded-2xl shadow-xl border border-slate-200 p-6 space-y-5">
+
+        <!-- Header -->
+        <div class="flex justify-between items-center">
+            <h2 class="text-xl font-semibold text-slate-800">Edit Blog</h2>
+            <button (click)="closePopover()" class="text-slate-400 hover:text-red-500 text-xl font-bold">
+                ✕
+            </button>
+        </div>
+
+        <!-- Title -->
+        <div>
+            <label class="text-sm text-slate-600 font-medium">Title</label>
+            <input type="text" [value]="selectedBlog()?.title" (input)="updateSelectedBlog($event, 'title')"
+                class="w-full mt-1 px-4 py-2 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
+        </div>
+
+        <!-- Description -->
+        <div>
+            <label class="text-sm text-slate-600 font-medium">Description</label>
+            <input type="text" [value]="selectedBlog()?.description" (input)="updateSelectedBlog($event, 'description')"
+                class="w-full mt-1 px-4 py-2 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
+        </div>
+
+        <!-- Content -->
+        <div>
+            <label class="text-sm text-slate-600 font-medium">Content</label>
+            <textarea rows="5" [value]="selectedBlog()?.content" (input)="updateSelectedBlog($event, 'content')"
+                class="w-full mt-1 px-4 py-2 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:outline-none resize-none"></textarea>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex justify-between items-center pt-4 border-t border-slate-100">
+
+            <!-- Delete -->
+            @if(selectedBlog().id) {
+            <button (click)="deleteBlog()"
+                class="px-4 py-2 rounded-xl bg-red-50 text-red-600 hover:bg-red-100 font-medium transition">
+                Delete
+            </button>
+            }
+
+            <!-- Right Buttons -->
+            <button (click)="updateBlog()"
+                class="px-5 py-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm transition">
+                Save
+            </button>
+        </div>
+    </div>
+</div>
+}
