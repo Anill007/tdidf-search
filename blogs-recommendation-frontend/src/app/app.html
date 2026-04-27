@@ -11,13 +11,16 @@
         </svg>
     </div>
 </div>
-<button (click)="toggleList()" class="w-fit px-4 py-2 bg-blue-600 text-white rounded-lg">
-    {{ filtered() ? 'Show Similar' : 'Show All' }}
-</button>
+<div class="flex justify-between">
+    <button (click)="toggleList()" class="w-fit px-4 py-2 bg-blue-600 text-white rounded-lg">
+        {{ filtered() ? 'Show Similar' : 'Show All' }}
+    </button>
+    <button class="ml-auto bg-red-600 text-white rounded-lg px-4 py-2" (click)="addNewBlog()">Add new Blog</button>
+</div>
 <div class="overflow-auto flex-1">
     @if(filtered()) {
     <div class="sticky top-0 bg-slate-50 py-6 text-red-700 text-lg font-semibold tracking-wide tracking-wide uppercase">
-        All Blogs <button (click)="addNewBlog()">Add new</button>
+        All Blogs
     </div>
     <div class="grid gap-6 sm:grid-cols-3 lg:grid-cols-4 max-w-8xl pr-2 py-2">
         @if(blogsLoading()) {
