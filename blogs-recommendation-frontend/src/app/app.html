@@ -1,4 +1,4 @@
-<div class="self-center mb-2 w-[60%]">
+<div class="self-center mb-2 w-[60%] pt-4">
     <!-- <ng-select [items]="suggestedBlogs() ?? []" autofocus placeholder="Search Blogs" bindLabel="title" [ngModel]="searchQuery()" (ngModelChange)="searchEvent()"></ng-select> -->
     <div class="relative">
         <input type="text" placeholder="Search..." [value]="searchQuery()" (input)="updateSearch($event)"
@@ -11,7 +11,9 @@
         </svg>
     </div>
 </div>
-<button (click)="toggleList()">{{filtered() ? 'Show Similar' : 'Show All'}}</button>
+<button (click)="toggleList()" class="w-fit px-4 py-2 bg-blue-600 text-white rounded-lg">
+    {{ filtered() ? 'Show Similar' : 'Show All' }}
+</button>
 <div class="overflow-auto flex-1">
     @if(filtered()) {
     <div class="sticky top-0 bg-slate-50 py-6 text-red-700 text-lg font-semibold tracking-wide tracking-wide uppercase">
@@ -57,7 +59,7 @@
 
             <!-- Badge -->
             <span
-                class="absolute top-3 right-3 text-xs font-semibold px-3 py-1 rounded-full bg-indigo-50 text-indigo-600">
+                class="absolute -top-3 right-3 text-xs font-semibold px-3 py-1 rounded-full bg-indigo-50 text-indigo-600">
                 Similarity: {{ blogData.similarity * 100 | number:'1.1-2' }}%
             </span>
 
