@@ -1,62 +1,62 @@
 [
-    {
-        "id": "a1f3c2d4-1111-4b22-8c11-123456789001",
-        "title": "1111",
-        "description": "222",
-        "content": "3333 1111 11111 wwwww"
-    },
-    {
-        "id": "b2e4d5f6-2222-4c33-9d22-123456789002",
-        "title": "Introduction to RESTful APIs",
-        "description": "Provides an overview of REST architecture and how APIs communicate over HTTP.",
-        "content": "RESTful APIs follow a stateless architecture and use HTTP methods like GET, POST, PUT, and DELETE to perform operations. They are widely used in web applications to enable communication between client and server. Proper API design ensures scalability, maintainability, and performance."
-    },
-    {
-        "id": "c3f5e6a7-3333-4d44-8e33-123456789003",
-        "title": "Getting Started with React Hooks",
-        "description": "Covers the basics of React Hooks such as useState and useEffect.",
-        "content": "React Hooks allow developers to use state and lifecycle features in functional components. The useState hook manages local state, while useEffect handles side effects like data fetching. Hooks simplify code and make components more reusable and readable."
-    },
-    {
-        "id": "d4a6f7b8-4444-4e55-9f44-123456789004",
-        "title": "Database Normalization Explained",
-        "description": "Describes the process of organizing database tables to reduce redundancy.",
-        "content": "Normalization involves structuring a relational database to minimize duplication and dependency. It is divided into multiple normal forms such as 1NF, 2NF, and 3NF. Proper normalization improves data integrity and efficiency in database operations."
-    },
-    {
-        "id": "e5b7a8c9-5555-4f66-8a55-123456789005",
-        "title": "Version Control with Git",
-        "description": "Introduces Git and its role in tracking changes in code.",
-        "content": "Git is a distributed version control system that helps developers manage changes in their codebase. It allows collaboration through branching and merging. Platforms like GitHub and GitLab make it easier to host repositories and work in teams."
-    },
-    {
-        "id": "f6c8b9d0-6666-4067-9b66-123456789006",
-        "title": "Introduction to TypeScript",
-        "description": "Explains how TypeScript enhances JavaScript with static typing.",
-        "content": "TypeScript is a superset of JavaScript that introduces static typing, interfaces, and advanced tooling. It helps catch errors during development rather than runtime. TypeScript improves code maintainability and scalability in large applications."
-    },
-    {
-        "id": "07d9c0e1-7777-4178-8c77-123456789007",
-        "title": "CSS Animations and Transitions",
-        "description": "Covers how to create smooth animations using CSS properties.",
-        "content": "CSS animations and transitions enable developers to create interactive and visually appealing interfaces. Transitions handle simple state changes, while keyframe animations allow complex sequences. These techniques enhance user experience without relying on JavaScript."
-    },
-    {
-        "id": "18e0d1f2-8888-4289-9d88-123456789008",
-        "title": "Introduction to Web Accessibility",
-        "description": "Highlights best practices for making websites accessible to all users.",
-        "content": "Web accessibility ensures that applications are usable by people with disabilities. This includes proper semantic HTML, keyboard navigation, and screen reader support. Following accessibility standards improves usability and inclusivity."
-    },
-    {
-        "id": "29f1e2a3-9999-4390-8e99-123456789009",
-        "title": "Understanding Asynchronous JavaScript",
-        "description": "Explains callbacks, promises, and async/await in JavaScript.",
-        "content": "Asynchronous JavaScript allows code to run without blocking the main thread. Callbacks were the initial approach, followed by promises and async/await for better readability. These techniques are essential for handling API calls and time-based operations."
-    },
-    {
-        "id": "3a02f3b4-1010-4401-9f10-123456789010",
-        "title": "Introduction to Docker Containers",
-        "description": "Describes how Docker simplifies application deployment using containers.",
-        "content": "Docker allows developers to package applications and their dependencies into containers. This ensures consistency across development, testing, and production environments. Containers are lightweight, portable, and widely used in modern DevOps workflows."
-    }
+  {
+    "id": "a1f3c2d4-1111-4b22-8c11-123456789001",
+    "title": "Understanding JavaScript Closures",
+    "description": "Explains how closures work in JavaScript and why they are important for data encapsulation.",
+    "content": "Closures are a fundamental concept in JavaScript where an inner function has access to variables from an outer function even after the outer function has executed. This allows for powerful patterns like data privacy and function factories. Closures are widely used in event handlers, callbacks, and functional programming."
+  },
+  {
+    "id": "b2e4d5f6-2222-4c33-9d22-123456789002",
+    "title": "Introduction to RESTful APIs",
+    "description": "Provides an overview of REST architecture and how APIs communicate over HTTP.",
+    "content": "RESTful APIs follow a stateless architecture and use HTTP methods like GET, POST, PUT, and DELETE to perform operations. They are widely used in web applications to enable communication between client and server. Proper API design ensures scalability, maintainability, and performance."
+  },
+  {
+    "id": "c3f5e6a7-3333-4d44-8e33-123456789003",
+    "title": "Getting Started with React Hooks",
+    "description": "Covers the basics of React Hooks such as useState and useEffect.",
+    "content": "React Hooks allow developers to use state and lifecycle features in functional components. The useState hook manages local state, while useEffect handles side effects like data fetching. Hooks simplify code and make components more reusable and readable."
+  },
+  {
+    "id": "d4a6f7b8-4444-4e55-9f44-123456789004",
+    "title": "Database Normalization Explained",
+    "description": "Describes the process of organizing database tables to reduce redundancy.",
+    "content": "Normalization involves structuring a relational database to minimize duplication and dependency. It is divided into multiple normal forms such as 1NF, 2NF, and 3NF. Proper normalization improves data integrity and efficiency in database operations."
+  },
+  {
+    "id": "e5b7a8c9-5555-4f66-8a55-123456789005",
+    "title": "Version Control with Git",
+    "description": "Introduces Git and its role in tracking changes in code.",
+    "content": "Git is a distributed version control system that helps developers manage changes in their codebase. It allows collaboration through branching and merging. Platforms like GitHub and GitLab make it easier to host repositories and work in teams."
+  },
+  {
+    "id": "f6c8b9d0-6666-4067-9b66-123456789006",
+    "title": "Introduction to TypeScript",
+    "description": "Explains how TypeScript enhances JavaScript with static typing.",
+    "content": "TypeScript is a superset of JavaScript that introduces static typing, interfaces, and advanced tooling. It helps catch errors during development rather than runtime. TypeScript improves code maintainability and scalability in large applications."
+  },
+  {
+    "id": "07d9c0e1-7777-4178-8c77-123456789007",
+    "title": "CSS Animations and Transitions",
+    "description": "Covers how to create smooth animations using CSS properties.",
+    "content": "CSS animations and transitions enable developers to create interactive and visually appealing interfaces. Transitions handle simple state changes, while keyframe animations allow complex sequences. These techniques enhance user experience without relying on JavaScript."
+  },
+  {
+    "id": "18e0d1f2-8888-4289-9d88-123456789008",
+    "title": "Introduction to Web Accessibility",
+    "description": "Highlights best practices for making websites accessible to all users.",
+    "content": "Web accessibility ensures that applications are usable by people with disabilities. This includes proper semantic HTML, keyboard navigation, and screen reader support. Following accessibility standards improves usability and inclusivity."
+  },
+  {
+    "id": "29f1e2a3-9999-4390-8e99-123456789009",
+    "title": "Understanding Asynchronous JavaScript",
+    "description": "Explains callbacks, promises, and async/await in JavaScript.",
+    "content": "Asynchronous JavaScript allows code to run without blocking the main thread. Callbacks were the initial approach, followed by promises and async/await for better readability. These techniques are essential for handling API calls and time-based operations."
+  },
+  {
+    "id": "3a02f3b4-1010-4401-9f10-123456789010",
+    "title": "Introduction to Docker Containers",
+    "description": "Describes how Docker simplifies application deployment using containers.",
+    "content": "Docker allows developers to package applications and their dependencies into containers. This ensures consistency across development, testing, and production environments. Containers are lightweight, portable, and widely used in modern DevOps workflows."
+  }
 ]

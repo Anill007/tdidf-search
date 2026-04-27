@@ -48,8 +48,7 @@ def create_post():
     if not fileSaved:
         return jsonify({'error': 'Failed to save data'}), 500
     tfidf_vectorizer = tf_idf_vectorizer_service
-    blogs_to_docs = [f"{b['title']} {b['description']} {b['content']}" for b in data]
-    tfidf_vectorizer.set_documents(blogs_to_docs)
+    tfidf_vectorizer.retrain()
     return jsonify(new_blog), 201
 
 
@@ -75,8 +74,12 @@ def update_post(post_id):
         return jsonify({"error": "Post not found"}), 404
     
     fileSaved = save_data(data)
+
     if not fileSaved:
         return jsonify({'error': 'Failed to save data'}), 500
+
+    tfidf_vectorizer = tf_idf_vectorizer_service
+    tfidf_vectorizer.retrain()
 
     return jsonify({"message": "Post updated successfully"}), 200
 
@@ -99,6 +102,10 @@ def delete_post(post_id):
     file_saved = save_data(updated_data)
     if not file_saved:
         return jsonify({'error': 'Failed to save data'}), 500
+    
+    tfidf_vectorizer = tf_idf_vectorizer_service
+    tfidf_vectorizer.retrain()
+
     return jsonify({"message": "Post deleted successfully"}), 200
 
 @app.route('/search', methods=['GET'])

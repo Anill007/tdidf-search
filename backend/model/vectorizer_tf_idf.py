@@ -10,6 +10,9 @@ class TfidfVectorizerModel:
         self._feature_names = []
         self._matrix_array = None
         self._similarity_matrix = None
+        self.retrain()
+
+    def retrain(self):
         data = read_data()
         blogs_to_docs = [f"{b['title']} {b['description']} {b['content']}" for b in data]
         self.set_documents(blogs_to_docs)
